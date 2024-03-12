@@ -16,12 +16,17 @@ Before using these scripts, you'll need to obtain an API key from OpenSea. This 
 
 The `metadata-updater.sh` script is designed to refresh all the metadata of a collection on OpenSea. When you update metadata associated with your NFT assets (such as images or descriptions), you may want to ensure that these changes are reflected on OpenSea. This script automates the process of refreshing metadata for all assets in a collection.
 
-Note: every 100 updates the script will pause for 30 seconds
+Note: every 100 updates the script will pause for 30 seconds.
 
 #### Usage
 
 ```bash
 ./metadata-updater.sh <collection_address> <opensea_api_key> <total_collection_items_number> 
+```
+Psst: Don't forget to make it executable by running
+
+```bash
+chmod +x metadata-updater.sh
 ```
 
 Here is an Example to update all items in Mutant Ape Yacht Club collection.
