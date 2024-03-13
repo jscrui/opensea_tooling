@@ -2,13 +2,19 @@
 
 # Ensure the collection parameter is provided
 if [ -z "$1" ]; then
-    echo "Usage: $0 <collection> <api_key>"
+    echo "Usage: $0 <collection> <api_key> <number_of_tokens_to_update>" 
     exit 1
 fi
 
 # Ensure the API key is set
 if [ -z "$2" ]; then
-    echo "Usage: $0 <collection> <api_key>"
+    echo "Usage: $0 <collection> <api_key> <number_of_tokens_to_update>" 
+    exit 1
+fi
+
+# Ensure the Number of items to refresh is set
+if [ -z "$3" ]; then
+    echo "Usage: $0 <collection> <api_key> <number_of_tokens_to_update>" 
     exit 1
 fi
 
@@ -16,10 +22,10 @@ fi
 collection="$1"
 
 # API key
-API_KEY="6b6e94e43ee54f569f67ae917655130d"
+API_KEY="$2"
 
-# Loop for 1000 times
-for ((i=1; i<=1000; i++)); do
+# Loop for "$3" times
+for ((i=1; i<="$3"; i++)); do
     # Construct the URL with the current value of i and the provided collection
     URL="https://api.opensea.io/api/v2/chain/ethereum/contract/$collection/nfts/$i/refresh"
     
